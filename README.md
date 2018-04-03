@@ -1,4 +1,4 @@
-﻿# ArcGIS Runtime 100.2 sample to show basic usage of MosaicDatasetRaster
+# ArcGIS Runtime 100.2 sample to show basic usage of MosaicDatasetRaster
 
 # More info:
 https://developers.arcgis.com/net/latest/wpf/api-reference/html/T_Esri_ArcGISRuntime_Rasters_MosaicDatasetRaster.htm
