@@ -1,0 +1,44 @@
+﻿<Window x:Class="RuntimeMosaicApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RuntimeMosaicApp"
+        xmlns:esri="http://schemas.esri.com/arcgis/runtime/2013"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="0,10,0,0" Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="0">
+            <Button x:Name="btnCreateOrLoadGeodatabase" HorizontalAlignment="Left" Content="Create/open geodatabase" Click="btnCreateOrOpenGeodatabase_Click" />
+            <Label x:Name="enterMDName" Content="Enter MosaicDataset name to create: " Visibility="Collapsed"/>
+            <Label x:Name="selectMD" Content="Select MosaicDataset to load: " Visibility="Collapsed"/>
+            <TextBox x:Name="MosaicDatasetNameTextBox" Visibility="Collapsed" Width="300" KeyUp="MosaicDatasetNameTextBox_KeyUp" />
+            <ComboBox x:Name="MosaicDatasetCombo" Visibility="Collapsed" Width="60" SelectionChanged="MosaicDatasetCombo_SelectionChanged"></ComboBox>
+            <Button x:Name="btnCreateOrLoadMD" Visibility="Collapsed" HorizontalAlignment="Left" Content="Load / Create" IsEnabled="False" Click="btnCreateOrLoadMD_Click" />
+        </StackPanel>
+        <StackPanel x:Name="AddRasterStack" Visibility="Collapsed" Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="1">
+            <TextBox x:Name="RasterPathTextBox" IsReadOnly="True" VerticalAlignment="Top" Width="300" />
+            <Button Content="Browse for path to rasters" x:Name="btnBrowseRasterPath" Click="btnBrowserRasterPath_Click" />
+            <Button Content="Add rasters to geodatabase" x:Name="btnAddRasters" IsEnabled="False" Click="btnAddRasters_Click" />
+        </StackPanel>
+        <esri:MapView Name="MyMapView" Grid.Row="2"></esri:MapView>
+        <StackPanel Grid.Row="3" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Width="400" HorizontalAlignment="Left">
+                <Button x:Name="DisplayRaster" Content="Display loaded MosaicDataset" Width="200" Height="20" Click="DisplayRaster_Click"></Button>
+                <Button x:Name="resetApp" Content="Reset app" Width="100" Height="20" Margin="10,0,0,0" Click="resetApp_Click"></Button>
+            </StackPanel>
+            <ListBox x:Name="debugListBox"></ListBox>
+        </StackPanel>
+    </Grid>
+</Window>
+
+    
